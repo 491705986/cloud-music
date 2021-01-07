@@ -7,7 +7,7 @@ function Home(props) {
   const { route } = props;
 
   return (
-    <div>
+    <>
       <Top>
         <span className="iconfont menu">&#xe65c;</span>
         <span className="title">WebApp</span>
@@ -31,7 +31,7 @@ function Home(props) {
         </NavLink>
       </Tab>
       {renderRoutes(route.routes)}
-    </div>
+    </>
   );
 }
 
