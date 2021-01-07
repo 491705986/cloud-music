@@ -3,7 +3,7 @@ import { getCount } from '../../api/utils';
 import { ListWrapper, ListItem, List } from './style';
 
 function RecommendList(props) {
-  const { recommendList = [] } = props;
+  const { recommendList } = props;
 
   return (
     <ListWrapper>
