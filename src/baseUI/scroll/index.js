@@ -1,19 +1,13 @@
-import React, {
-  forwardRef,
-  useState,
-  useEffect,
-  useRef,
-  useImperativeHandle
-} from 'react';
-import PropTypes from 'prop-types';
-import BScroll from 'better-scroll';
-import styled from 'styled-components';
+import React, { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react'
+import PropTypes from 'prop-types'
+import BScroll from 'better-scroll'
+import styled from 'styled-components'
 
 const ScrollContainer = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-`;
+`
 
 const Scroll = forwardRef((props, ref) => {
   const {
@@ -27,10 +21,10 @@ const Scroll = forwardRef((props, ref) => {
     pullUp,
     pullDown,
     onScroll
-  } = props;
+  } = props
 
-  const [bScroll, setBScroll] = useState();
-  const scrollContaninerRef = useRef();
+  const [bScroll, setBScroll] = useState()
+  const scrollContaninerRef = useRef()
   // 创建 better-scroll
   useEffect(() => {
     const scroll = new BScroll(scrollContaninerRef.current, {
@@ -42,78 +36,74 @@ const Scroll = forwardRef((props, ref) => {
         top: bounceTop,
         bottom: bounceBottom
       }
-    });
-    setBScroll(scroll);
+    })
+    setBScroll(scroll)
     return () => {
-      setBScroll(null);
-    };
-  }, []);
+      setBScroll(null)
+    }
+  }, [])
 
   // 给实例绑定 scroll 事件
   useEffect(() => {
-    if (!bScroll || !onScroll) return;
+    if (!bScroll || !onScroll) return
     bScroll.on('scroll', scroll => {
-      onScroll(scroll);
-    });
+      onScroll(scroll)
+    })
     return () => {
-      bScroll.off('scroll');
-    };
-  }, [onScroll, bScroll]);
+      bScroll.off('scroll')
+    }
+  }, [onScroll, bScroll])
   // 每次重新渲染都要刷新实例，防止无法滑动
   useEffect(() => {
     if (refresh && bScroll) {
-      bScroll.refresh();
+      bScroll.refresh()
     }
-  });
+  })
   useEffect(() => {
-    if (!bScroll || !pullUp) return;
+    if (!bScroll || !pullUp) return
     bScroll.on('scrollEnd', () => {
       // 判断是否滑动到了底部
       if (bScroll.y <= bScroll.maxScrollY + 100) {
-        pullUp();
+        pullUp()
       }
-    });
+    })
     return () => {
-      bScroll.off('scrollEnd');
-    };
-  }, [pullUp, bScroll]);
+      bScroll.off('scrollEnd')
+    }
+  }, [pullUp, bScroll])
 
   useEffect(() => {
-    if (!bScroll || !pullDown) return;
+    if (!bScroll || !pullDown) return
     bScroll.on('touchEnd', pos => {
       // 判断用户的下拉动作
       if (pos.y > 50) {
-        pullDown();
+        pullDown()
       }
-    });
+    })
     return () => {
-      bScroll.off('touchEnd');
-    };
-  }, [pullDown, bScroll]);
+      bScroll.off('touchEnd')
+    }
+  }, [pullDown, bScroll])
 
   // 一般和 forwardRef 一起使用，ref 已经在 forWardRef 中默认传入
   useImperativeHandle(ref, () => ({
     // 给外界暴露 refresh 方法
     refresh() {
       if (bScroll) {
-        bScroll.refresh();
-        bScroll.scrollTo(0, 0);
+        bScroll.refresh()
+        bScroll.scrollTo(0, 0)
       }
     },
     // 给外界暴露 getBScroll 方法，提供 bs 实例
     getBScroll() {
       if (bScroll) {
-        return bScroll;
+        return bScroll
       }
     }
-  }));
+  }))
 
-  return (
-    <ScrollContainer ref={scrollContaninerRef}>
-      {props.children}
-    </ScrollContainer>
-  );
-});
+  return <ScrollContainer ref={scrollContaninerRef}>{props.children}</ScrollContainer>
+})
 
 Scroll.defaultProps = {
   direction: 'vertical',
@@ -126,7 +116,7 @@ Scroll.defaultProps = {
   pullDown: null,
   bounceTop: true,
   bounceBottom: true
-};
+}
 
 Scroll.propTypes = {
   irection: PropTypes.oneOf(['vertical', 'horizental']), // 滚动的方向
@@ -139,6 +129,6 @@ Scroll.propTypes = {
   pullDownLoading: PropTypes.bool, // 是否显示下拉 loading 动画
   bounceTop: PropTypes.bool, // 是否支持向上吸顶
   bounceBottom: PropTypes.bool // 是否支持向下吸底
-};
+}
 
-export default Scroll;
+export default Scroll
