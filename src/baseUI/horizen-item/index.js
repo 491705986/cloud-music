@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect, memo } from 'react'
+import React, { useRef, useEffect, memo } from 'react'
 import styled from 'styled-components'
 import Scroll from '../scroll/index'
 import { PropTypes } from 'prop-types'
 import style from '../../assets/global-style'
 
+//样式部分
 const List = styled.div`
   display: flex;
   align-items: center;
@@ -16,7 +17,6 @@ const List = styled.div`
     margin-right: 5px;
     color: grey;
     font-size: ${style['font-size-m']};
-    vertical-align: middle;
   }
 `
 const ListItem = styled.span`
@@ -32,13 +32,11 @@ const ListItem = styled.span`
 `
 
 function Horizen(props) {
+  const Category = useRef(null)
   const { list, oldVal, title } = props
   const { handleClick } = props
 
-  // 加入声明
-  const Category = useRef(null)
-
-  // 加入初始化内容宽度的逻辑
+  //加入初始化内容宽度的逻辑
   useEffect(() => {
     let categoryDOM = Category.current
     let tagElems = categoryDOM.querySelectorAll('span')
@@ -71,11 +69,6 @@ function Horizen(props) {
   )
 }
 
-// 首先考虑接受的参数
-//list 为接受的列表数据
-//oldVal 为当前的 item 值
-//title 为列表左边的标题
-//handleClick 为点击不同的 item 执行的方法
 Horizen.defaultProps = {
   list: [],
   oldVal: '',
@@ -89,4 +82,5 @@ Horizen.propTypes = {
   title: PropTypes.string,
   handleClick: PropTypes.func
 }
+
 export default memo(Horizen)
