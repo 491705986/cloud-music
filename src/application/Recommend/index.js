@@ -19,6 +19,7 @@ function Recommend(props) {
     if (!recommendList.size) {
       getRecommendListDataDispatch()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const bannerListJS = bannerList ? bannerList.toJS() : []
