@@ -1,10 +1,11 @@
-import React from 'react';
-import { renderRoutes } from 'react-router-config';
-import { NavLink } from 'react-router-dom';
-import { Top, Tab, TabItem } from './style';
+import React from 'react'
+import { renderRoutes } from 'react-router-config'
+import { NavLink } from 'react-router-dom'
+import { Top, Tab, TabItem } from './style'
+import Player from '../Player'
 
 function Home(props) {
-  const { route } = props;
+  const { route } = props
 
   return (
     <>
@@ -31,8 +32,9 @@ function Home(props) {
         </NavLink>
       </Tab>
       {renderRoutes(route.routes)}
+      <Player></Player>
     </>
-  );
+  )
 }
 
-export default React.memo(Home);
+export default React.memo(Home)
