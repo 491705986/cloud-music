@@ -58,8 +58,8 @@ export const SongList = styled.div`
       background: ${style['background-color']};
       color: ${style['font-color-desc']};
     }
+    ${props => (props.showBackground ? `background: ${style['highlight-background-color']}` : '')}
   }
-  ${props => (props.showBackground ? `background: ${style['highlight-background-color']}` : '')}
 `
 export const SongItem = styled.ul`
   > li {

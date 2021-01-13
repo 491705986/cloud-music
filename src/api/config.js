@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const baseUrl = 'http://47.100.39.25:3000'
 
-//axios 的实例及拦截器配置
+// axios的实例及拦截器配置
 const axiosInstance = axios.create({
   baseURL: baseUrl
 })
@@ -16,16 +16,7 @@ axiosInstance.interceptors.response.use(
 
 export { axiosInstance }
 
-// 头部高度
-export const HEADER_HEIGHT = 45
-
-// 播放模式
-export const playMode = {
-  sequence: 0,
-  loop: 1,
-  random: 2
-}
-
+//歌手种类
 export const categoryTypes = [
   {
     name: '华语男',
@@ -89,7 +80,7 @@ export const categoryTypes = [
   }
 ]
 
-// 歌手首字母
+//歌手首字母
 export const alphaTypes = [
   {
     key: 'A',
@@ -196,3 +187,13 @@ export const alphaTypes = [
     name: 'Z'
   }
 ]
+
+//顶部的高度
+export const HEADER_HEIGHT = 45
+
+//播放模式
+export const playMode = {
+  sequence: 0,
+  loop: 1,
+  random: 2
+}

@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components'
-import style from '../../../assets/global-style'
+import styled, { keyframes } from "styled-components";
+import style from "../../../assets/global-style";
 
 const rotate = keyframes`
   0%{
@@ -8,7 +8,7 @@ const rotate = keyframes`
   100%{
     transform: rotate(360deg);
   }
-`
+`;
 export const NormalPlayerContainer = styled.div`
   position: fixed;
   left: 0;
@@ -16,7 +16,7 @@ export const NormalPlayerContainer = styled.div`
   top: 0;
   bottom: 0;
   z-index: 150;
-  background: ${style['background-color']};
+  background: ${style["background-color"]};
   &.normal-enter,
   &.normal-exit-done {
     .top {
@@ -49,12 +49,12 @@ export const NormalPlayerContainer = styled.div`
     opacity: 0.6;
     filter: blur(20px);
     &.layer {
-      background: ${style['font-color-desc']};
+      background: ${style["font-color-desc"]};
       opacity: 0.3;
       filter: none;
     }
   }
-`
+`;
 export const Top = styled.div`
   position: relative;
   margin-bottom: 25px;
@@ -67,7 +67,7 @@ export const Top = styled.div`
       display: block;
       padding: 9px;
       font-size: 24px;
-      color: ${style['font-color-desc']};
+      color: ${style["font-color-desc"]};
       font-weight: bold;
       transform: rotate(90deg);
     }
@@ -77,18 +77,18 @@ export const Top = styled.div`
     margin: 0 auto;
     line-height: 40px;
     text-align: center;
-    font-size: ${style['font-size-l']};
-    color: ${style['font-color-desc']};
+    font-size: ${style["font-size-l"]};
+    color: ${style["font-color-desc"]};
     ${style.noWrap()};
   }
   .subtitle {
     line-height: 20px;
     text-align: center;
-    font-size: ${style['font-size-m']};
-    color: ${style['font-color-desc-v2']};
+    font-size: ${style["font-size-m"]};
+    color: ${style["font-color-desc-v2"]};
     ${style.noWrap()};
   }
-`
+`;
 export const Middle = styled.div`
   position: fixed;
   width: 100%;
@@ -97,7 +97,7 @@ export const Middle = styled.div`
   white-space: nowrap;
   font-size: 0;
   overflow: hidden;
-`
+`;
 export const CDWrapper = styled.div`
   position: absolute;
   margin: auto;
@@ -136,13 +136,13 @@ export const CDWrapper = styled.div`
     text-align: center;
     color: rgba(255, 255, 255, 0.5);
   }
-`
+`;
 
 export const Bottom = styled.div`
   position: absolute;
   bottom: 50px;
   width: 100%;
-`
+`;
 export const ProgressWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -150,8 +150,8 @@ export const ProgressWrapper = styled.div`
   margin: 0px auto;
   padding: 10px 0;
   .time {
-    color: ${style['font-color-desc']};
-    font-size: ${style['font-size-s']};
+    color: ${style["font-color-desc"]};
+    font-size: ${style["font-size-s"]};
     flex: 0 0 30px;
     line-height: 30px;
     width: 30px;
@@ -165,16 +165,16 @@ export const ProgressWrapper = styled.div`
   .progress-bar-wrapper {
     flex: 1;
   }
-`
+`;
 export const Operators = styled.div`
   display: flex;
   align-items: center;
   .icon {
     font-weight: 300;
     flex: 1;
-    color: ${style['font-color-desc']};
+    color: ${style["font-color-desc"]};
     &.disable {
-      color: ${style['theme-color-shadow']};
+      color: ${style["theme-color-shadow"]};
     }
     i {
       font-weight: 300;
@@ -195,6 +195,6 @@ export const Operators = styled.div`
     text-align: left;
   }
   .icon-favorite {
-    color: ${style['theme-color']};
+    color: ${style["theme-color"]};
   }
-`
+`;
